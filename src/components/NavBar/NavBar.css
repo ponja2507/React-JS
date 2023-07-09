@@ -1,0 +1,17 @@
+
+.divNavBar {
+    position: absolute;
+    top: 0%;
+    margin: 0px 150px 150px 150px;
+    padding: 0px;
+    width: 1280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.imgNavBar {
+    width: 200px;
+    height: auto;
+    display: flex;
+    position: left;
+}

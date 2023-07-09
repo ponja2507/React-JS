@@ -1,0 +1,17 @@
+
+.cartWidget {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartWidget svg {
+    height: auto;
+    width: 40px;
+}
+
+.cartWidget-cant {
+    position: absolute;
+    right: -0.8em;
+    bottom: 1.8em;
+}
