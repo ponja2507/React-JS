@@ -1,13 +1,18 @@
+import { Item } from "../Item/Item";
 import "./ItemListContainer.css";
 
-export const ItemListContainer = ({greeting}) => {
-    return (
-        <div className="divItems">
-            <h2>{greeting}</h2>
-            <p>Item 1</p>
-            <p>Item 2</p>
-            <p>Item 3</p>
-            <p>Item 4</p>
-        </div>
-    )
+export const ItemListContainer = ({products}) => {
+    <div>
+        {products.map((product) => (
+            <Item 
+            key={product.id}
+            id={product.id}
+            img={product.img}
+            marca={product.marca}
+            nombre={product.nombre}
+            precio={product.precio}
+            uso={product.uso}
+            />
+        ))}
+    </div>
 }
