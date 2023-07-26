@@ -95,6 +95,6 @@ export const getProducto = (id) => {
     const product = PRODUCTS.filter((product) => product.id === id)[0];
     
     return new Promise((res) => {
-        res(book);
+        res(product);
     });
 };

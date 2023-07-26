@@ -10,8 +10,8 @@ const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route>
     <Route path='/' element = {<Home />} />
-      <Route path='/item:id' element = {<Detalle />} />
-      <Route path='/marca:id' element = {<Marca />} />
+      <Route path='/item/:id' element = {<Detalle />} />
+      <Route path='/marca/:id' element = {<Marca />} />
 
     </Route>
   )
