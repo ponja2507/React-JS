@@ -18,18 +18,18 @@ export const Detalle = () => {
     return (
     <div>
         <div>
-        <div>
-            <img src={producto.img} />
-        </div>
-        <div>
-            <span>{producto.nombre} </span>
+            <div>
+                <img src={producto.img} />
+            </div>
+            <div>
+                <span>{producto.nombre} </span>
 
-            <p>{producto.descripcion}</p>
+                <p>{producto.descripcion}</p>
 
-            <span>
-            $
-            {(producto.precio || 0)}
-            </span>
+                <span>
+                $
+                {(producto.precio || 0)}
+                </span>
             </div>
         </div>
     </div>
