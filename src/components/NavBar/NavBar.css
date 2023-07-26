@@ -1,10 +1,16 @@
 
+.nB {
+    display: flex;
+    justify-content: center;
+}
+
 .divNavBar {
-    position: absolute;
+    position: relative;
     top: 0%;
-    margin: 0px 150px 150px 150px;
+    margin: 30px;
     padding: 0px;
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

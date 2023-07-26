@@ -17,11 +17,14 @@ const routes = createBrowserRouter(
 
 
 function App() {
-  
   return (
+    <>
     <div>
-      <RouterProvider router={routes} />
+      <NavBar />
+      {/* <RouterProvider router={routes} /> */}
+      <Home />
     </div>
+    </>
   );
 };
 

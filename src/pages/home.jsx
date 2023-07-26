@@ -10,6 +10,7 @@ export const Home = () =>{
         .then(res => setProducts(res))
     }, []);
 
+
     return (
         <div>
             <div>

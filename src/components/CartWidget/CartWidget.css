@@ -11,7 +11,7 @@
 }
 
 .cartWidget-cant {
-    position: absolute;
-    right: -0.8em;
-    bottom: 1.8em;
+    position: relative;
+    right: -0.2em;
+    bottom: -2.9em;
 }

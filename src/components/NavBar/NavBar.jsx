@@ -3,7 +3,7 @@ import { CartWidget } from "../CartWidget/CartWidget";
 
 export const NavBar = () => {
     return (
-        <header>
+        <nav className="nB">
             <div className = "divNavBar">
                 <img 
                 className = "imgNavBar"
@@ -11,6 +11,6 @@ export const NavBar = () => {
                 <h1>Bienvenido</h1>
                 <CartWidget />
             </div>
-        </header>
+        </nav>
     )
 }
