@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "../lib/productos.request";
+import { getProductos } from "../lib/productos.request";
 import { ItemListContainer } from "../components";
+
 
 
 export const Home = () =>{
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        getProducts()
+        getProductos()
         .then(res => setProducts(res))
     }, []);
 

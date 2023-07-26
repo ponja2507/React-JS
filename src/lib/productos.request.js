@@ -81,20 +81,20 @@ const PRODUCTS = [{
 },
 ];
 
-export const getProducts = (id) => {
+export const getProductos = (id) => {
     const _products = id ? PRODUCTS.filter((product) => product.marca.toLocaleLowerCase() === id) : PRODUCTS;
 
     return new Promise((res) => {
         setTimeout(() => {
             res(_products);
-        }, 2000)
+        }, 1000)
     });
 };
 
-// export const getProduct = (id) => {
-//     const product = PRODUCTS.filter((product) => product.id === id)[0];
+export const getProducto = (id) => {
+    const product = PRODUCTS.filter((product) => product.id === id)[0];
     
-//     return new Promise((res) => {
-//         res(book);
-//     });
-// };
+    return new Promise((res) => {
+        res(book);
+    });
+};
