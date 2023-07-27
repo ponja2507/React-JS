@@ -17,9 +17,8 @@ export const Marca = () => {
     }, [id]);
 
     return (
-        <div>
-            <div>
-            <h5>{isLoading ? "Cargando ..." : ""}</h5>
+        <div className="contenedor">
+            <div className="item">
             <ItemListContainer products={products} />
             </div>
         </div>

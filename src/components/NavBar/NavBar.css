@@ -21,3 +21,17 @@
     display: flex;
     position: left;
 }
+
+.centro {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.marcas {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}

@@ -13,8 +13,8 @@ export const Home = () =>{
 
 
     return (
-        <div>
-            <div>
+        <div className="contenedor">
+            <div className="item">
                 <ItemListContainer products={products}/>
             </div>
         </div>

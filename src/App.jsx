@@ -6,26 +6,41 @@ import { Home } from './pages/home';
 import { Marca } from './pages/marca';
 
 
-const routes = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-    <Route path='/' element = {<Home />} />
-      <Route path='/item/:id' element = {<Detalle />} />
-      <Route path='/marca/:id' element = {<Marca />} />
-
-    </Route>
-  )
-);
-
-
 function App() {
   return (
     <div>
-      <NavBar />
-      <RouterProvider router={routes} />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/item/:id' element={<Detalle />} />
+          <Route path='/marca/:id' element={<Marca />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
+
+// const routes = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route>
+//     <Route path='/' element = {<Home />} />
+//       <Route path='/item/:id' element = {<Detalle />} />
+//       <Route path='/marca/:id' element = {<Marca />} />
+
+//     </Route>
+//   )
+// );
+
+
+// function App() {
+//   return (
+//     <div>
+//       <NavBar />
+//       <RouterProvider router={routes} />
+//     </div>
+//   );
+// };
 
 export default App
 
