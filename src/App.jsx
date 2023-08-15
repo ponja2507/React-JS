@@ -4,43 +4,27 @@ import { NavBar } from './components';
 import { Detalle } from './pages/detalle';
 import { Home } from './pages/home';
 import { Marca } from './pages/marca';
+import { CartProvider } from './state/Cart.context';
+import { Cart } from './pages/cart';
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/item/:id' element={<Detalle />} />
-          <Route path='/marca/:id' element={<Marca />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/item/:id' element={<Detalle />} />
+            <Route path='/marca/:id' element={<Marca />} />
+            <Route path='/cart' element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 };
-
-// const routes = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route>
-//     <Route path='/' element = {<Home />} />
-//       <Route path='/item/:id' element = {<Detalle />} />
-//       <Route path='/marca/:id' element = {<Marca />} />
-
-//     </Route>
-//   )
-// );
-
-
-// function App() {
-//   return (
-//     <div>
-//       <NavBar />
-//       <RouterProvider router={routes} />
-//     </div>
-//   );
-// };
 
 export default App
 

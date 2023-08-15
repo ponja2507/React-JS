@@ -1,17 +1,31 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getProducto } from "../lib/productos.request";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useCartContext } from "../state/Cart.context";
+import { ItemCount } from "../components/ItemCount/ItemCount";
 
 export const Detalle = () => {
     const {id} = useParams();
+    const navigate = useNavigate();
     const [producto, setProducto] = useState({});
+    
+
+    const {addProducto, itemInCart} = useCartContext();
 
 
     useEffect(() => {
-    getProducto(+id).then((res) => {
+    getProducto(id).then((res) => {
+        if(!res) return navigate("/");
         setProducto(res);
         });
     }, []);
+
+    const handleAdd = useCallback(
+        (qty) => {
+            addProducto(producto, qty);
+        },
+        [addProducto, producto]
+    );
 
     if(!Object.keys(producto).length) return
 
@@ -30,6 +44,7 @@ export const Detalle = () => {
                 $
                 {(producto.precio)}
                 </span>
+                <ItemCount stock={producto.stock - (itemInCart?.(id)?.qty || 0 )} onAdd={handleAdd}/>
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ export const ItemListContainer = ({products}) => {
                     marca={product.marca}
                     nombre={product.nombre}
                     precio={product.precio}
-                    uso={product.uso}
+                    stock={product.stock}
                     />
                 ))}
             </div>

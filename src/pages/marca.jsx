@@ -7,19 +7,21 @@ export const Marca = () => {
     const {id} = useParams();
     const [products, setProducts] = useState([]); 
     const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
 
+    useEffect(() => {
+        setProducts([]);
+        setIsLoading(true);
         getProductos(id) 
-        .then(res => {
+        .then((res) => {
             setIsLoading(false); 
             setProducts(res)} 
-            ) 
+            ); 
     }, [id]);
 
     return (
         <div className="contenedor">
             <div className="item">
-            <ItemListContainer products={products} />
+                <ItemListContainer products={products} loading={isLoading} />
             </div>
         </div>
     );
