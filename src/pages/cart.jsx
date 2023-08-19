@@ -9,7 +9,7 @@ import { deformito } from "../assets/deformito";
 
 
 const FORM_COMPRA = [
-    {label: "Nombre", name: "nombre", placeholder: "Ingresa tu nombre"},
+    {label: "Nombre", name: "nombreCliente", placeholder: "Ingresa tu nombre"},
     {label: "Dirección", name: "direccion", placeholder: "Ingresa tu dirección"},
     {label: "Correo", name: "correo1", placeholder: "Ingresa tu Email"},
     {label: "Repetir Correo", name: "correo2", placeholder: "Repite tu Email"},
@@ -28,13 +28,13 @@ export const Cart = () => {
             precio,
         }));
 
-    const {nombre, direccion, correo1, tel} = form;
+        const {nombreCliente, direccion, correo1, tel} = form;
 
-    const orden = {
-        buyer: {nombre, direccion, correo1, tel},
-        items,
-        total: getTotalPrice,
-    };
+        const orden = {
+            cliente: {nombreCliente, direccion, correo1, tel},
+            items,
+            total: getTotalPrice,
+        };
 
         const id = await addOrden(orden);
         await updateManyProducts(items);
