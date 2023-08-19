@@ -28,6 +28,24 @@ export const CartProvider = ({ children }) => {
 
     const getTotalPrice = useMemo(() => cart.reduce((acc, item) => acc + item.precio * item.qty, 0), [cart]);
 
+    const mermaProducto = (id) => {
+        const newCart = cart.map((item) =>
+            item.id === id ? {...item, qty: Math.max(item.qty - 1, 1)} : item
+            );
+
+        setCart(newCart);
+    };
+
+    const sumaProducto = (id) => {
+        const newCart = cart.map((item) => {
+            if (item.id === id && item.qty < item.stock) {
+                return {...item, qty: item.qty + 1};
+            }
+            return item;
+        });
+        setCart(newCart);
+    };
+
     const value = {
         cart,
         addProducto,
@@ -35,7 +53,9 @@ export const CartProvider = ({ children }) => {
         cleanCart,
         getCartQty,
         getTotalPrice,
-        itemInCart
+        itemInCart,
+        mermaProducto,
+        sumaProducto
     };
 
     return (

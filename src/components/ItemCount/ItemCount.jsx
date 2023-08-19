@@ -17,9 +17,9 @@ export const ItemCount = ({ stock = 0, onAdd}) => {
             {stock ? (
                 <>
                     <div>
-                        <button onClick={() => handleSub}>-</button>
+                        <button onClick={() => handleSub()}>-</button>
                         <span>{count}</span>
-                        <button onClick={() => handleSum}>+</button>
+                        <button onClick={() => handleSum()}>+</button>
                     </div>
                     <button disabled={!stock} onClick={() => {
                         onAdd(count);

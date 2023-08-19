@@ -3,6 +3,9 @@ import { updateManyProducts } from "../lib/productos.request";
 import { LocaleString } from "../components/LocaleString/LocaleString";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useCartContext } from "../state/Cart.context";
+import { Input } from "../components";
+import { addOrden } from "../lib/ordenes.request";
+import { deformito } from "../assets/deformito";
 
 
 const FORM_COMPRA = [
@@ -15,7 +18,7 @@ const FORM_COMPRA = [
 
 export const Cart = () => {
     const [form, setForm] = useState({});
-    const {cart, cleanCart, getTotalPrice, removeProduct} = useCartContext();
+    const {cart, cleanCart, getTotalPrice, removeProduct, mermaProducto, sumaProducto, addProducto} = useCartContext();
 
     const crearOrden = async () => {
         const items = cart.map(({id, nombre, qty, precio}) => ({
@@ -45,48 +48,62 @@ export const Cart = () => {
     };
 
     return (
-        <div>
+        <div className="carrito">
             <div>
                 {cart.length ? (
                     <>
                         <div>
-                            <button onClick={cleanCart}>Vaciar Carrito</button>
+                            <button className="boton-carrito" onClick={cleanCart}>Vaciar Carrito</button>
                         </div>
                         <div>
-                            <div>
+                            <div className="nombres-carrito">
                                 <span>Producto</span>
                                 <span>Cantidad</span>
                                 <span>Precio</span>
                                 <span>Subtotal</span>
                             </div>
                             {cart.map((item) => (
-                                <div key={item.id}>
-                                    <span>{item.nombre}</span>
-                                    <span>{item.qty}</span>
+                                <div className="detalle-carrito" key={item.id}>
+                                    <span className="nombre-detalle-carrito">{item.nombre}</span>
+                                    <span>
+                                    <button className="boton-ajuste" onClick={() => mermaProducto(item.id)}> - </button>
+                                    <span className="qty-detalle-carrito">{item.qty}</span>
+                                    <button className="boton-ajuste" onClick={() => sumaProducto(item.id)}> + </button>
+                                    </span>
+                                    <span className="precio-detalle-carrito" >
                                     <LocaleString num = {item.precio} />
+                                    </span>
+                                    <span className="subtotal-detalle-carrito" >
                                     <LocaleString num = {item.qty * item.precio} />
-                                    <button onClick={() => removeProduct(item.id)}>
+                                    </span>
+                                    <button className="boton-ajuste" onClick={() => removeProduct(item.id)}>
                                         <AiOutlineDelete />
                                     </button>
                                 </div>
                             ))}
                         </div>
                         <div>
-                            <div>
-                                <span>Total</span> <LocaleString num = {getTotalPrice} />
-                            </div>{" "}
+                            <div className="div-total-detalle">
+                                <span className="total-detalle">Total </span> 
+                                <span className="total-importe-detalle">
+                                    <LocaleString num = {getTotalPrice} />
+                                </span>
+                            </div>
                         </div>
-                        <div>
+                        <div className="form-carrito">
                             {FORM_COMPRA.map((input) => (
                                 <Input key={input.nombre} onChange={handleChange} {...input} />
                             ))}
-                            <button onClick={crearOrden}>
-                                Realizar Pedido
-                            </button>
                         </div>
+                        <button className="boton-pedido-carrito" onClick={crearOrden}>
+                            Realizar Pedido
+                        </button>
                     </>
                 ) : (
+                    <>
                     <h2>No hay productos en el carrito</h2>
+                    <img src={deformito}/>
+                    </>
                 )}
             </div>
         </div>

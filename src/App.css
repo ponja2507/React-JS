@@ -76,3 +76,83 @@
 .detalle-info span {
   font-size: 35px;
 }
+
+.boton-carrito {
+  background-color: #1371ae5c;
+  margin: 5px;
+}
+
+.nombres-carrito {
+  display: grid;
+  grid-template-columns: 4fr 2.5fr 2.3fr 2.5fr;
+  margin: 15px;
+  font-size: 20px;
+}
+
+.detalle-carrito {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr .2fr;
+  margin: 15px;
+  font-size: 20px;
+}
+
+.boton-ajuste {
+  width: 15px;
+  justify-items: center;
+  margin: 0px ;
+  padding: 0px ;
+}
+
+.subtotal-detalle-carrito {
+  padding-left: 20px;
+}
+
+.precio-detalle-carrito {
+  padding-left: 10px;
+}
+
+.div-total-detalle {
+  display: flex;
+  justify-content: center;
+  border-radius: 2px solid red;
+}
+
+.total-detalle {
+  font-size: 30px;
+  margin: 5px;
+}
+
+.total-importe-detalle {
+  font-size: 30px;
+  margin: 5px;
+}
+
+.form-carrito {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-size: 25px;
+  margin: 5px;
+  
+}
+
+.form-carrito div {
+  display: grid;
+  grid-template-columns: .75fr 1fr;
+  left: 25%;
+  max-width: 800px;
+  position: relative;
+  margin: 15px;
+}
+
+.form-carrito div span {
+  display: flex;
+  max-width: 300px;
+}
+
+.boton-pedido-carrito{
+  background-color: #1371ae5c;
+  margin: 15px;
+  position: absolute;
+  left: 50%;
+}
+
