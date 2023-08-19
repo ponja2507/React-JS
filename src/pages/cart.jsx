@@ -91,8 +91,8 @@ export const Cart = () => {
                             </div>
                         </div>
                         <div className="form-carrito">
-                            {FORM_COMPRA.map((input) => (
-                                <Input key={input.nombre} onChange={handleChange} {...input} />
+                            {FORM_COMPRA.map((input, index) => (
+                                <Input key={index} onChange={handleChange} {...input} />
                             ))}
                         </div>
                         <button className="boton-pedido-carrito" onClick={crearOrden}>
