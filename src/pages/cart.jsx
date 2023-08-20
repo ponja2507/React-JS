@@ -37,14 +37,15 @@ export const Cart = () => {
         };
 
         const id = await addOrden(orden);
+        alert(`Su código de orden es ${id}`)
+
         await updateManyProducts(items);
         cleanCart();
     };
 
-    const handleChange = ({target: {value, nombre}}) => {
-        setForm({
-            ...form, [nombre]: value,
-        });
+
+    const handleChange = ({target: {value, nombreCliente}}) => {
+        setForm({...form, [nombreCliente]: value,});
     };
 
     return (
