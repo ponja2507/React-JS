@@ -36,16 +36,18 @@ export const Cart = () => {
             total: getTotalPrice,
         };
 
+        
+        
         const id = await addOrden(orden);
         alert(`Su código de orden es ${id}`)
-
+        
         await updateManyProducts(items);
         cleanCart();
     };
-
-
-    const handleChange = ({target: {value, nombreCliente}}) => {
-        setForm({...form, [nombreCliente]: value,});
+    
+    const handleChange = (evento) => {
+        const {name, value} = evento.target;
+        setForm({...form, [name]:value})
     };
 
     return (
@@ -93,7 +95,7 @@ export const Cart = () => {
                         </div>
                         <div className="form-carrito">
                             {FORM_COMPRA.map((input, index) => (
-                                <Input key={index} onChange={handleChange} {...input} />
+                                <Input key={index} name={input.name} onChange={handleChange} {...input} />
                             ))}
                         </div>
                         <button className="boton-pedido-carrito" onClick={crearOrden}>
